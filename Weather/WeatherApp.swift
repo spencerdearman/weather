@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct WeatherApp: App {
+    @State private var locationManager = LocationManager()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if locationManager.isAuthorized {
+                ForecastView()
+            } else {
+                LocationDeniedView()
+            }
         }
+        .environment(locationManager)
     }
 }
