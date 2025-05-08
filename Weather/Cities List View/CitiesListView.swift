@@ -42,6 +42,7 @@ struct CitiesListView: View {
                                 Button(role: .destructive) {
                                     if let index = store.cities.firstIndex(where: {$0.id == city.id}) {
                                         store.cities.remove(at: index)
+                                        store.saveCities()
                                     }
                                 } label: {
                                     Image(systemName: "trash")
@@ -65,6 +66,7 @@ struct CitiesListView: View {
                     Button {
                         if !store.cities.contains(where: { $0.name == city.name }) {
                             store.cities.append(city)
+                            store.saveCities()
                         }
                         searchText = ""
                     } label: {
