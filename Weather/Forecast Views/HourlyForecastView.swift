@@ -12,14 +12,13 @@ struct HourlyForecastView: View {
     let weatherManager = WeatherManager.shared
     let hourlyForecast: Forecast<HourWeather>
     let timezone: TimeZone
-    
     var body: some View {
         Text("Hourly Forecast").font(.title)
         Text("Next 25 hours").font(.caption)
         ScrollView(.horizontal) {
             HStack(spacing: 15) {
                 ForEach(hourlyForecast, id: \.date) { hour in
-                    VStack {
+                    VStack(spacing: 0) {
                         Text(hour.date.localTime(for: timezone))
                         Divider()
                         Spacer()
@@ -27,11 +26,10 @@ struct HourlyForecastView: View {
                             .renderingMode(.original)
                             .symbolVariant(.fill)
                             .font(.system(size: 22))
-                            .padding(.bottom, 3)
-                        
+                            .padding(.bottom,3)
                         if hour.precipitationChance > 0 {
                             Text("\((hour.precipitationChance * 100).formatted(.number.precision(.fractionLength(0))))%")
-                                .foregroundColor(.cyan)
+                                .foregroundStyle(.cyan)
                                 .bold()
                         }
                         Spacer()

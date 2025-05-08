@@ -15,7 +15,6 @@ struct CityRowView: View {
     @State private var isLoading = false
     @State private var timezone: TimeZone = .current
     let city: City
-    
     var body: some View {
         VStack {
             if isLoading {
