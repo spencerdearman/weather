@@ -54,8 +54,8 @@ struct CitiesListView: View {
                             }
                     }
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .listRowInsets(.init(top: 0, leading: 20, bottom: 5, trailing: 20))
+                .clipShape(RoundedRectangle(cornerRadius: 20))
+                .listRowInsets(.init(top: 10, leading: 20, bottom: 0, trailing: 20))
             }
             .listStyle(.plain)
             .navigationTitle("My Cities")
