@@ -24,6 +24,18 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func hourlyTime(for timezone: TimeZone) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h"
+        return dateFormatter.string(from: self)
+    }
+    
+    func amPmTime(for timezone: TimeZone) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "a"
+        return dateFormatter.string(from: self)
+    }
+    
     func localWeekDay(for timezone: TimeZone) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "E"

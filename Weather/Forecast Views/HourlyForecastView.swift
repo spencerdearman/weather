@@ -43,6 +43,10 @@ struct HourlyForecastView: View {
         .contentMargins(.all, 15, for: .scrollContent)
         .background(RoundedRectangle(cornerRadius: 20).fill(Color.secondary.opacity(0.2)))
     }
+    
+    func removeUnits(_ string: String) -> String {
+        return string.filter { $0 != "F" && $0 != "C" }
+    }
 }
 
 //#Preview {
